@@ -22,15 +22,6 @@ class MainActivity : AppCompatActivity(), CoffeeListener {
             insets
         }
         Log.d(TAG, "onCreate")
-        if(savedInstanceState == null){
-            findViewById<FragmentContainerView>(R.id.fragment_container).let{
-                containerLayout ->
-                    val listFragment = ListFragment()
-                    supportFragmentManager.beginTransaction()
-                        .add(containerLayout.id, listFragment)
-                        .commit()
-            }
-        }
     }
 
     override fun onStart() {
