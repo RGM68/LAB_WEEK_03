@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.navigation.Navigation
 
 // TODO: Rename parameter arguments, choose names that match
@@ -51,11 +53,41 @@ class ListFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Experiment with looping
+        /* coffeeNameList = listOf(
+            getString(R.string.affogato_title),
+            getString(R.string.americano_title),
+            getString(R.string.latte_title),
+            getString(R.string.cappuccino_title),
+            getString(R.string.espresso_title),
+            getString(R.string.flatwhite_title),
+            getString(R.string.mocha_title)
+        )
+
+        val container: LinearLayout = view.findViewById(R.id.coffee_container)
+
+        for (coffee in coffeeNameList) {
+            val textView = TextView(requireContext()).apply {
+                id = "@+id/" + coffee
+                text = coffee
+                setPadding(10, 10, 10, 10)
+                textSize = 18f
+            }
+            container.addView(textView)
+        }*/
+
         val coffeeList = listOf<View>(
             view.findViewById(R.id.affogato),
             view.findViewById(R.id.americano),
-            view.findViewById(R.id.latte)
+            view.findViewById(R.id.latte),
+            view.findViewById(R.id.cappuccino),
+            view.findViewById(R.id.espresso),
+            view.findViewById(R.id.flatwhite),
+            view.findViewById(R.id.mocha)
         )
+
+
 
 //        coffeeList.forEach { it.setOnClickListener(this) }
 

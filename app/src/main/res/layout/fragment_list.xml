@@ -7,6 +7,7 @@
     tools:context=".ListFragment">
 
     <LinearLayout
+        android:id="@+id/coffee_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -38,6 +39,30 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/latte_title" />
+        <TextView
+            android:id="@+id/cappuccino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/cappuccino_title" />
+        <TextView
+            android:id="@+id/espresso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/espresso_title" />
+        <TextView
+            android:id="@+id/flatwhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/flatwhite_title" />
+        <TextView
+            android:id="@+id/mocha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/mocha_title" />
 
     </LinearLayout>
 

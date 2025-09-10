@@ -1,11 +1,14 @@
 package com.example.lab_week_03
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +27,8 @@ class DetailFragment : Fragment() {
 
     private val coffeeTitle: TextView?get() = view?.findViewById(R.id.coffee_title)
     private val coffeeDesc: TextView?get() = view?.findViewById(R.id.coffee_desc)
+    private val backButton: Button?get() = view?.findViewById(R.id.back_button)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,11 +49,31 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val coffeeId = arguments?.getInt(COFFEE_ID, 0) ?: 0
-        setCoffeeData(coffeeId)
+        setCoffeeData(coffeeId )
+
+        backButton?.setOnClickListener {
+//            findNavController().popBackStack()
+            findNavController().navigate(R.id.coffee_list)
+        }
     }
 
+    private val coffeeData = mapOf(
+        R.id.affogato to Pair(R.string.affogato_title, R.string.affogato_desc),
+        R.id.americano to Pair(R.string.americano_title, R.string.americano_desc),
+        R.id.latte to Pair(R.string.latte_title, R.string.latte_desc),
+        R.id.cappuccino to Pair(R.string.cappuccino_title, R.string.cappuccino_desc),
+        R.id.espresso to Pair(R.string.espresso_title, R.string.espresso_desc),
+        R.id.flatwhite to Pair(R.string.flatwhite_title, R.string.flatwhite_desc),
+        R.id.mocha to Pair(R.string.mocha_title, R.string.mocha_desc)
+    )
+
     fun setCoffeeData(id: Int){
-        when(id){
+        //Mapping method
+        coffeeData[id]?.let { (cofTitle, cofDes) ->
+            coffeeTitle?.text = getString(cofTitle)
+            coffeeDesc?.text = getString(cofDes)
+        }
+        /*when(id){
             R.id.affogato -> {
                 coffeeTitle?.text = getString(R.string.affogato_title)
                 coffeeDesc?.text = getString(R.string.affogato_desc)
@@ -61,7 +86,9 @@ class DetailFragment : Fragment() {
                 coffeeTitle?.text = getString(R.string.latte_title)
                 coffeeDesc?.text = getString(R.string.latte_desc)
             }
-        }
+        }*/
+
+
     }
 
     companion object {
